@@ -5,18 +5,19 @@ using System.Text;
 
 namespace Entities
 {
-    public class CategoryEntity
+   public class WarehouseEntity
     {
         [Key]
         [StringLength(50)]
-        public string CategoryId { get; set; }
+        public string WarehouseId { get; set; }
+
         [Required]
         [StringLength(100)]
-        public string CategoryName { get; set; }
+        public string WarehouseName { get; set; }
 
-        public ICollection <ProductEntity> Products { get; set; }
-       
-
+        [Required]
+        [StringLength(100)]
+        public string WarehouseAddress { get; set; }
 
     }
 }
