@@ -4,14 +4,16 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(InventaryContext))]
-    partial class InventaryContextModelSnapshot : ModelSnapshot
+    [Migration("20200313192753_test1")]
+    partial class test1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,24 +120,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            ProductId = "ASJ-98745",
-                            CategoryId = "PRF",
-                            ProductDescription = "",
-                            ProductName = "Crema para manos marca Tersa",
-                            TotalQuantity = 0
-                        },
-                        new
-                        {
-                            ProductId = "RPT-54658",
-                            CategoryId = "SLD",
-                            ProductDescription = "",
-                            ProductName = "Pastillas para la garganta LESUS",
-                            TotalQuantity = 0
-                        });
                 });
 
             modelBuilder.Entity("Entities.StorageEntity", b =>
@@ -184,20 +168,6 @@ namespace DataAccess.Migrations
                     b.HasKey("WarehouseId");
 
                     b.ToTable("Warehouses");
-
-                    b.HasData(
-                        new
-                        {
-                            WarehouseId = "cbf3a9de-3079-4a1d-b9f5-74dc4a3d7fd0",
-                            WarehouseAddress = "Calle 8 con 23",
-                            WarehouseName = "Bodega Central"
-                        },
-                        new
-                        {
-                            WarehouseId = "29c0c84d-b637-4613-8d9d-5545fbc5dccd",
-                            WarehouseAddress = "Calle norte con occidente",
-                            WarehouseName = "Bodega Norte"
-                        });
                 });
 
             modelBuilder.Entity("Entities.InputOutputEntity", b =>

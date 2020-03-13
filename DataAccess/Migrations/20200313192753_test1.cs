@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccess.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class test1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,7 +23,7 @@ namespace DataAccess.Migrations
                 name: "Warehouses",
                 columns: table => new
                 {
-                    WarehouseId = table.Column<string>(maxLength: 50, nullable: false),
+                    WarehouseId = table.Column<string>(maxLength: 100, nullable: false),
                     WarehouseName = table.Column<string>(maxLength: 100, nullable: false),
                     WarehouseAddress = table.Column<string>(maxLength: 100, nullable: false)
                 },
@@ -36,7 +36,7 @@ namespace DataAccess.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    ProductId = table.Column<string>(maxLength: 10, nullable: false),
+                    ProductId = table.Column<string>(maxLength: 50, nullable: false),
                     ProductName = table.Column<string>(maxLength: 100, nullable: false),
                     ProductDescription = table.Column<string>(maxLength: 600, nullable: true),
                     TotalQuantity = table.Column<int>(nullable: false),
@@ -99,6 +99,19 @@ namespace DataAccess.Migrations
                         principalTable: "Storages",
                         principalColumn: "StorageId",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[,]
+                {
+                    { "ASH", "Aseo Hogar" },
+                    { "ASP", "Aseo Personal" },
+                    { "HGR", "Hogar" },
+                    { "PRF", "Perfumería" },
+                    { "SLD", "Salud" },
+                    { "VDJ", "Video Juegos" }
                 });
 
             migrationBuilder.CreateIndex(
