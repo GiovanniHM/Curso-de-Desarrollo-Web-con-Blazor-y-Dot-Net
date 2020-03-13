@@ -20,7 +20,7 @@ namespace Entities
         public string WarehouseAddress { get; set; }
 
         //Relationship with Storage
-        public ICollection<StorageEntity> Storages { get; set; };
+        public ICollection<StorageEntity> Storages { get; set; }
 
     }
 }

@@ -3,3 +3,11 @@ C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones 
 C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.csprojAssemblyReference.cache
 C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.AssemblyInfoInputs.cache
 C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.AssemblyInfo.cs
+C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\bin\Debug\netcoreapp3.0\Entities.dll
+C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.pdb
+C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\bin\Debug\netcoreapp3.0\Entities.pdb
+C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.csproj.CopyComplete
+C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.dll
+C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\obj\Debug\netcoreapp3.0\DataAccess.pdb
+C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.runtimeconfig.json
+C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\DataAccess\bin\Debug\netcoreapp3.0\DataAccess.runtimeconfig.dev.json

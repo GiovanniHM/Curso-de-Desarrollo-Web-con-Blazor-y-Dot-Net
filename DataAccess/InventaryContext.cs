@@ -14,5 +14,15 @@ namespace DataAccess
         public DbSet<WarehouseEntity> Warehouses { get; set; }
         public DbSet<StorageEntity>Storages { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            //Chain of connection 
+            if(!options.IsConfigured)
+            {
+                //Specific connection for sql server
+                options.UseSqlServer("Server =DESKTOP-QVGSU4R; Database=InvetoryDb; User Id=; Password=");
+            }
+        }
+
     }
 }
