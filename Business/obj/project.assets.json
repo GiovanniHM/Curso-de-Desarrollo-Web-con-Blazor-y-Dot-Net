@@ -1267,20 +1267,6 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Business/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.0",
-        "dependencies": {
-          "DataAccess": "1.0.0",
-          "Entities": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Business.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Business.dll": {}
-        }
-      },
       "DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.0",
@@ -4944,11 +4930,6 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "Business/1.0.0": {
-      "type": "project",
-      "path": "../Business/Business.csproj",
-      "msbuildProject": "../Business/Business.csproj"
-    },
     "DataAccess/1.0.0": {
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
@@ -4962,7 +4943,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
-      "Business >= 1.0.0",
+      "DataAccess >= 1.0.0",
       "Entities >= 1.0.0"
     ]
   },
@@ -4973,11 +4954,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\Inventory2\\Inventory2.csproj",
-      "projectName": "Inventory2",
-      "projectPath": "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\Inventory2\\Inventory2.csproj",
+      "projectUniqueName": "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\Business\\Business.csproj",
+      "projectName": "Business",
+      "projectPath": "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\Giovanni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\Inventory2\\obj\\",
+      "outputPath": "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4996,8 +4977,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\Business\\Business.csproj": {
-              "projectPath": "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\Business\\Business.csproj"
+            "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\DataAccess\\DataAccess.csproj"
             },
             "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\Entities\\Entities.csproj": {
               "projectPath": "C:\\Users\\Giovanni\\Desktop\\Escritorio-10-08-19\\Platzi\\Desarrollo de Aplicaciones con ASP .NET\\Curso de Desarrollo Web con Blazor y .Net\\Proyectos\\Entities\\Entities.csproj"
@@ -5024,9 +5005,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
