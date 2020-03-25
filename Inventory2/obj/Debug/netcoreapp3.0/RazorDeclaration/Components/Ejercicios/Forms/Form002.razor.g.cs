@@ -90,6 +90,13 @@ using Inventory2.Components.Ejercicios.Forms;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\Inventory2\_Imports.razor"
+using Inventory2.Components.Products;
+
+#line default
+#line hidden
+#nullable disable
     public class Form002 : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
