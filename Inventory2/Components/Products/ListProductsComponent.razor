@@ -1,0 +1,49 @@
+﻿@using Entities
+@using Business
+
+@code{ int scopeNumberA = 0;}
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Cantidad total</th>
+            <th scope="col">Categoria</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var product in products)
+        {
+
+        <tr>
+
+            @{scopeNumberA++;}
+            <th scope="row">@scopeNumberA</th>
+            <td>@product.ProductId</td>
+            <td>@product.ProductName</td>
+            <td>@product.ProductDescription</td>
+            <td>@product.TotalQuantity</td>
+        </tr>
+
+
+        }
+    </tbody>
+</table>
+
+
+@code {
+
+    List<ProductEntity> products = new List<ProductEntity>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = B_Product.ProductList();
+
+
+    }
+}

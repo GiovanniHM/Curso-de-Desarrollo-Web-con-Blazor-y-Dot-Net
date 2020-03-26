@@ -12,7 +12,7 @@ namespace Business
         //Se referencia la clase con la cual llenaremos la lista "CategoryEntity"
         //"CategoryList" solo es un nombre caracteristico (atra vez de ese metodo llegara el 
         //listado de la categoría)
-        public List<CategoryEntity> CategoryList()
+        public static List<CategoryEntity> CategoryList()
         {
             //Llamado interno con un unicio y un final (abre y cierra conexión {})
 

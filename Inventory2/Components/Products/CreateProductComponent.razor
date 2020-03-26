@@ -2,32 +2,56 @@
 @using Entities
 @using Business
 <div>
-
+    
+    @*Formulario especial de razor*@
     <EditForm Model="oProduct">
-        <div class="form-control">
+        <div class="form-group">
             <label>Referencia: </label>
+            @*Se asocia el los atributos de la entidad.*@
             <InputText @bind-Value="oProduct.ProductId" class="form-control" />
         </div>
-        <div class="form-control">
+        <div class="form-group">
             <label>Nombre dek producto: </label>
             <InputText @bind-Value="oProduct.ProductName" class="form-control" />
         </div>
-        <div class="form-control">
+        <div class="form-group">
             <label>Descripción: </label>
             <InputTextArea @bind-Value="oProduct.ProductDescription" class="form-control" />
         </div>
-        <input type="button" value="Agregar producto" @onclick="SaveProduct" />
+        <div class="form-group">
+            <label>Categoría: </label>
+           <InputSelect @bind-Value="oProduct.CategoryId" class="form-control">
+               @*De esta forma se llaman un listado de las categorias*@
+               @foreach(var category in categories)
+               {
+                   <option value="@category.CategoryId">@category.CategoryName</option>
+               }
+           </InputSelect>
+        </div>
+        @*En onclick se agrega el metodo a ejecutar*@
+        <input type="button" value="Agregar producto" @onclick="SaveProduct" class="btn btn-success" />
     </EditForm>
 
 </div>
 @code {
     //Se crea un objeto de porduct entiti poara poder 
     //Trabar con el
+
     ProductEntity oProduct = new ProductEntity();
 
     private void SaveProduct()
     {
+        //Entidad.NombreDelMetodo(objetoCreadoParaManipularDatos)
         B_Product.CreateProduc(oProduct);
     }
+
+    //Lista de categorias 
+    List<CategoryEntity> categories = new List<CategoryEntity>();
+    protected override async Task OnInitializedAsync()
+    {
+        categories = B_Category.CategoryList();
+
+    }
+
 
 }
