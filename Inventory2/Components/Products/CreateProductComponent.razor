@@ -2,7 +2,7 @@
 @using Entities
 @using Business
 
-@*Creacion de dependecias*@
+@*Creacion de dependecias para utilizar contenido de navegacion*@
 @inject NavigationManager NavManager
 <div>
     
@@ -46,6 +46,7 @@
     {
         //Entidad.NombreDelMetodo(objetoCreadoParaManipularDatos)
         B_Product.CreateProduc(oProduct);
+        //Cuando es nagacion no hace falta el primer "/"
         NavManager.NavigateTo("product/list");
     }
 

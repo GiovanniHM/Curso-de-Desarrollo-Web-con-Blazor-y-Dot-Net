@@ -18,6 +18,9 @@ namespace Business
             }
         }
 
+
+
+
         // ----------> Create
 
         public static void CreateProduc(ProductEntity objProduc)
@@ -33,7 +36,7 @@ namespace Business
 
         // -----------> Update 
 
-        public void UpdateProduc(ProductEntity objProduc)
+        public static void UpdateProduc(ProductEntity objProduc)
         {
             using (var db = new InventaryContext())
             {
@@ -41,6 +44,16 @@ namespace Business
                 db.SaveChanges();
             }
 
+        }
+
+        // Listar el produtos al editar 
+
+        public static ProductEntity ProductById(string id)
+        {
+            using (var db = new InventaryContext())
+            {
+                return db.Products.LastOrDefault(p => p.ProductId == id);
+            }
         }
 
 

@@ -1,0 +1,52 @@
+﻿@using Entities
+@using Business
+
+@inject NavigationManager NavManager
+@*Formulario propie de balzor*@
+<EditForm Model="onProduct">
+    <div class="form-group">
+        <label>Nombre dek producto: </label>
+        <InputText @bind-Value="onProduct.ProductName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Descripción: </label>
+        <InputTextArea @bind-Value="onProduct.ProductDescription" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Categoría: </label>
+        <InputSelect @bind-Value="onProduct.CategoryId" class="form-control">
+            @foreach (var category in categories)
+            {
+                <option value="@category.CategoryId">@category.CategoryName</option>
+            }
+        </InputSelect>
+    </div>
+    <input type="button" value="Agregar producto" @onclick="UpdateProduct" class="btn btn-success" />
+
+</EditForm>
+
+<h3>UpdateProductComponent</h3>
+
+@code {
+    [Parameter]
+    public string IdProduct { get; set; }
+
+    ProductEntity onProduct = new ProductEntity();
+    List<CategoryEntity> categories = new List<CategoryEntity>();
+
+    //Se ejecuta el momento de cargar la informacion
+    protected override async Task OnInitializedAsync()
+    {
+        onProduct = B_Product.ProductById(IdProduct);
+        categories = B_Category.CategoryList();
+
+    }
+
+    private void UpdateProduct()
+    {
+
+        B_Product.UpdateProduc(onProduct);
+        NavManager.NavigateTo("product/list");
+    }
+
+}
