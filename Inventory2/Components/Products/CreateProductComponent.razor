@@ -1,6 +1,9 @@
 ﻿@*Llamado a entidades*@
 @using Entities
 @using Business
+
+@*Creacion de dependecias*@
+@inject NavigationManager NavManager
 <div>
     
     @*Formulario especial de razor*@
@@ -43,6 +46,7 @@
     {
         //Entidad.NombreDelMetodo(objetoCreadoParaManipularDatos)
         B_Product.CreateProduc(oProduct);
+        NavManager.NavigateTo("product/list");
     }
 
     //Lista de categorias 
@@ -50,6 +54,7 @@
     protected override async Task OnInitializedAsync()
     {
         categories = B_Category.CategoryList();
+        
 
     }
 
