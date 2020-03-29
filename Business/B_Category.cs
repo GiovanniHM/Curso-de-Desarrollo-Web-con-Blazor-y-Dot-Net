@@ -25,7 +25,7 @@ namespace Business
         }
 
         //Pasamos un obj como prarametro para cargar los datos (CategoryEntity objCategory)
-        public void CreateCategory(CategoryEntity objCategory)
+        public static void CreateCategory(CategoryEntity objCategory)
         {
             using (var db = new InventaryContext())
             {
@@ -37,12 +37,21 @@ namespace Business
             }
         }
 
-        public void UpdateCategory(CategoryEntity objCategory)
+        public static void UpdateCategory(CategoryEntity objCategory)
         {
             using (var db = new InventaryContext())
             {
                 db.Categories.Update(objCategory);
                 db.SaveChanges();
+            }
+
+        }
+
+        public static CategoryEntity CategoryById(string id)
+        {
+            using (var db = new InventaryContext())
+            {
+                return db.Categories.ToList().LastOrDefault(c => c.CategoryId == id);
             }
 
         }

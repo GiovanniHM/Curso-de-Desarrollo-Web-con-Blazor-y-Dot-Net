@@ -1,0 +1,17 @@
+﻿@page "/category/update/{CategoryId}"
+
+
+
+@*<Inventory2.Components.Category.UpdateCategoryComponent IdCategory="@CategoryId"/>*@
+<UpdateCategoryComponent CategoryId="@CategoryId"/>
+
+@code {
+    [Parameter]
+    public string CategoryId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        CategoryId = CategoryId;
+
+    }
+}

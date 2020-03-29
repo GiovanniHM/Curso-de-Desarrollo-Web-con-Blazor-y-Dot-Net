@@ -46,13 +46,14 @@ namespace Business
 
         }
 
-        // Listar el produtos al editar 
+        // Trae determinado producto
 
         public static ProductEntity ProductById(string id)
         {
             using (var db = new InventaryContext())
             {
-                return db.Products.LastOrDefault(p => p.ProductId == id);
+                //esprecion lamba que toma el id que se le pasa arriba del metodo
+                return db.Products.ToList().LastOrDefault(p => p.ProductId == id);
             }
         }
 

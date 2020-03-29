@@ -22,7 +22,12 @@ namespace Inventory2
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    //webBuilder.UseStartup<Startup>();
+                    //Erors detallados 
+                    webBuilder
+               .UseStartup<Startup>()
+               .UseSetting(WebHostDefaults.DetailedErrorsKey, "true");
+                //.UseEnvironment(EnvironmentName.Development);
                 });
     }
 }

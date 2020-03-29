@@ -21,7 +21,7 @@
             }
         </InputSelect>
     </div>
-    <input type="button" value="Agregar producto" @onclick="UpdateProduct" class="btn btn-success" />
+    <input type="button" value="Actualizar producto" @onclick="UpdateProduct" class="btn btn-info" />
 
 </EditForm>
 
@@ -34,7 +34,7 @@
     ProductEntity onProduct = new ProductEntity();
     List<CategoryEntity> categories = new List<CategoryEntity>();
 
-    //Se ejecuta el momento de cargar la informacion
+    //Se ejecuta el momento de cargar la informacion inicial de la pàgina
     protected override async Task OnInitializedAsync()
     {
         onProduct = B_Product.ProductById(IdProduct);
