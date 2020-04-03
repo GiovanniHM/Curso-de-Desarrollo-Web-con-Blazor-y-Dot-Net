@@ -18,6 +18,7 @@
 
     private void SaveWarehose()
     {
+        
         oWarehose.WarehouseId = Guid.NewGuid().ToString();
         B_Warehouse.CreateWarehouse(oWarehose);
         NavManager.NavigateTo("warehose/list");

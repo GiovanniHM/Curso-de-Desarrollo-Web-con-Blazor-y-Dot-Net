@@ -30,6 +30,17 @@ namespace Business
             }
         }
 
+        public static bool IsProductinWarehouse(string idStorage)
+        {
+            using (var db = new InventaryContext())
+            {
+                //Revisa si hay algún producto repetido en la bodega
+                var product = db.Storages.ToList().Where(s => s.StorageId == idStorage);
+                // Revisa si se cumplio la norma y se activa el boleano
+                return product.Any();
+            }
+        }
+
         // Update
 
         public static void UpdateStorage(StorageEntity objStorage)

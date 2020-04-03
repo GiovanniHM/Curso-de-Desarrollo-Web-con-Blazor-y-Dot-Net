@@ -27,7 +27,9 @@
             </InputSelect>
         </div>
         <input type="button" value="Almacenar producto" @onclick="SaveStorage" class="btn btn-success" />
-
+        <div class="text-center h4">
+            @message
+        </div>
 
 
     </EditForm>
@@ -40,6 +42,8 @@
     List<WarehouseEntity> warehouses = new List<WarehouseEntity>();
     List<ProductEntity> products = new List<ProductEntity>();
 
+    string message;
+
     protected override async Task OnInitializedAsync()
     {
         warehouses = B_Warehouse.WarehouseList();
@@ -50,9 +54,20 @@
 
     private void SaveStorage()
     {
-        oStorage.LastUpdate = DateTime.Now;
-        oStorage.StorageId = Guid.NewGuid().ToString();
+        oStorage.StorageId = $"{oStorage.WarehouseId}-{oStorage.ProductId}";
 
-        B_Storage.CreateStorage(oStorage);
+        if (!B_Storage.IsProductinWarehouse(oStorage.StorageId))
+        {
+            oStorage.LastUpdate = DateTime.Now;
+            B_Storage.CreateStorage(oStorage);
+            message = "Producto registrado";
+
+        }
+        else
+        {
+          message = "El producto ya se encuntra en la bodega";
+
+        }
+
     }
 }
