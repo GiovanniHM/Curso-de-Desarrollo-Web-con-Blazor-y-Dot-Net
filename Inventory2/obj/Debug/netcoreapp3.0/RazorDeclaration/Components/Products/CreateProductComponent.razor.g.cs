@@ -119,6 +119,13 @@ using Inventory2.Components.Storage;
 #line hidden
 #nullable disable
 #nullable restore
+#line 16 "C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\Inventory2\_Imports.razor"
+using Inventory2.Components.InOuts;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\Giovanni\Desktop\Escritorio-10-08-19\Platzi\Desarrollo de Aplicaciones con ASP .NET\Curso de Desarrollo Web con Blazor y .Net\Proyectos\Inventory2\Components\Products\CreateProductComponent.razor"
 using Entities;
 

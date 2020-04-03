@@ -1,0 +1,35 @@
+﻿@using Entities
+@using Business
+<h3>CreateInOutComponent</h3>
+
+<div class="form-group">
+    <select class="form-control" @onchange="OnchagedWarehouse">
+        <option value="">
+            Selecione una bodega...
+        </option>
+        @foreach (var warehouse in warehouses)
+        {
+           <option value="@warehouse.WarehouseId">@warehouse.WarehouseName</option>
+        }
+        
+    </select>
+</div>
+
+@code {
+    InputOutputEntity oInOut = new InputOutputEntity();
+
+    List<WarehouseEntity> warehouses = new List<WarehouseEntity>();
+    List<StorageEntity> storages = new List<StorageEntity>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        warehouses = B_Warehouse.WarehouseList();
+    }
+
+    private void OnchagedWarehouse(ChangeEventArgs e)
+    {
+        var idwarehouse = e.Value.ToString();
+
+    }
+
+}
