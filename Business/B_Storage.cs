@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business
 {
@@ -50,6 +51,18 @@ namespace Business
 
                 db.Storages.Update(objStorage);
                 db.SaveChanges();
+            }
+        }
+
+        public static List<StorageEntity> StorageProductsByWarehouse(string idWarehouse)
+        {
+            using (var db = new InventaryContext())
+            {
+                //Carga el id de los productos hacociados al almacenamiento
+                //El método recibe como parámetro el id de la bodega
+
+                return db.Storages.Include(s=>s.Product).Include(s => s.Warehouse)
+                    .Where(s => s.WarehouseId == idWarehouse).ToList();
             }
         }
     }

@@ -9,13 +9,43 @@
         </option>
         @foreach (var warehouse in warehouses)
         {
-           <option value="@warehouse.WarehouseId">@warehouse.WarehouseName</option>
+            <option value="@warehouse.WarehouseId">@warehouse.WarehouseName</option>
         }
-        
+
     </select>
 </div>
+<hr />
+<EditForm Model="oInOut">
+    <div class="form-group">
+        <InputSelect class="form-control" @bind-Value="oInOut.StorageId">
+            <option value="">
+                Selecione un producto...
+            </option>
+            @foreach (var storage in storages)
+            {
+                <option value="@storage.StorageId">@storage.Product.ProductName</option>
+            }
+
+        </InputSelect>
+    </div>
+    <div class="form-group">
+        <label>Cantidad</label>
+        <InputNumber class="form-control" @bind-Value="oInOut.Quantity">
+        </InputNumber>
+    </div>
+    <div class="form-group">
+        <label>¿Es una entrada?</label>
+        <InputCheckbox class="form-control" @bind-Value="oInOut.IsInput">
+        </InputCheckbox>
+    </div>
+    <input class="form-group" type="button" value="@buttonValue" @onclick="SaveInOut" />
+
+</EditForm>
+
 
 @code {
+    //Si el obj oInOut.IsInput es verdadero aparece Registrar Entrada de lo contrario lo otro
+    string buttonValue => oInOut.IsInput ? "Registrar Entrada" : "Registrar Salida";
     InputOutputEntity oInOut = new InputOutputEntity();
 
     List<WarehouseEntity> warehouses = new List<WarehouseEntity>();
@@ -29,6 +59,11 @@
     private void OnchagedWarehouse(ChangeEventArgs e)
     {
         var idwarehouse = e.Value.ToString();
+        storages = B_Storage.StorageProductsByWarehouse(idwarehouse);
+    }
+
+    private void SaveInOut()
+    {
 
     }
 
