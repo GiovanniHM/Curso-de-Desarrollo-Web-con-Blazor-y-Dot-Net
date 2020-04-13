@@ -39,19 +39,33 @@
         </InputCheckbox>
     </div>
     <input class="form-group" type="button" value="@buttonValue" @onclick="SaveInOut" />
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-@alert mt-2" role="alert">
+                @message
+            </div>
+        </div>
+    </div>
+
 
 </EditForm>
 
 
 @code {
-    //Si el obj oInOut.IsInput es verdadero aparece Registrar Entrada de lo contrario lo otro
-    string buttonValue => oInOut.IsInput ? "Registrar Entrada" : "Registrar Salida";
-    InputOutputEntity oInOut = new InputOutputEntity();
+        //Si el obj oInOut.IsInput es verdadero aparece Registrar Entrada de lo contrario lo otro
+        string buttonValue => oInOut.IsInput ? "Registrar Entrada" : "Registrar Salida";
+        string message;
+         string alert;
+        InputOutputEntity oInOut = new InputOutputEntity();
 
-    List<WarehouseEntity> warehouses = new List<WarehouseEntity>();
-    List<StorageEntity> storages = new List<StorageEntity>();
+        List<WarehouseEntity> warehouses = new List<WarehouseEntity>();
+        List<StorageEntity> storages = new List<StorageEntity>();
+        ProductEntity oProduct = new ProductEntity();
+        StorageEntity oStorage = new StorageEntity();
 
-    protected override async Task OnInitializedAsync()
+
+
+        protected override async Task OnInitializedAsync()
     {
         warehouses = B_Warehouse.WarehouseList();
     }
@@ -64,7 +78,54 @@
 
     private void SaveInOut()
     {
+        //igualamos nustro obj a la lista de storages InputSelect de
+        //Y decimos que temo el valor de oInOut.StorageId que se encuntra en la lista 
+        oStorage = storages.LastOrDefault(s => s.StorageId == oInOut.StorageId);
+        //De acuerdo al storaga se carga el producto
+        //Y en esta parte ya se carga el producto
+        oProduct = oStorage.Product;
+        //Si es una entrada
+        if(oInOut.IsInput)
+        {
+            oStorage.PartialQuantity = oStorage.PartialQuantity + oInOut.Quantity;
+            B_Storage.UpdateStorage(oStorage);
 
+            oProduct.TotalQuantity = oProduct.TotalQuantity + oInOut.Quantity;
+            B_Product.UpdateProduc(oProduct);
+             message = $"El producto {oProduct.ProductName} ha sido actualizado";
+            alert = "success";
+        }
+        else
+        {
+            if (IsBiggerThanZero(oInOut.Quantity, oStorage.PartialQuantity))
+            {
+                oStorage.PartialQuantity = oStorage.PartialQuantity - oInOut.Quantity;
+                B_Storage.UpdateStorage(oStorage);
+
+                oProduct.TotalQuantity = oProduct.TotalQuantity - oInOut.Quantity;
+                B_Product.UpdateProduc(oProduct);
+
+                message = $"El producto {oProduct.ProductName} ha sido actualizado";
+                alert = "success";
+
+            }
+            else
+            {
+                 message = $"No existe la cantidad suficnete en bodega para el producto {oProduct.ProductName}";
+                alert = "danger";
+            }
+
+        }
+
+    }
+
+    private bool IsBiggerThanZero (int quantity, int storageQuantity)
+    {
+        if (storageQuantity>= quantity)
+        {
+            return true;
+        }
+        return false;
     }
 
 }
